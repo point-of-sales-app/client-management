@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updatePathname } from '../../store/state/state.actions';
+import { bindActionCreators } from 'redux';
 
 class Sidenav extends Component {
     constructor(props) {
@@ -7,36 +10,34 @@ class Sidenav extends Component {
         this.state = {}
     }
 
-    // componentDidMount() {
-    //     const navItem = document.querySelectorAll('.link');
-    //     for (var i = 0; i < navItem.length; i++) {
-    //         navItem[i].addEventListener("click", function () {
-    //             var current = document.getElementsByClassName("active");
-    //             current[0].className = current[0].className.replace(" active", "");
-    //             this.className += " active";
-    //         });
-    //     }
-    // }
-
     render() {
+        const navItem = document.querySelectorAll('.link');
+        const a = document.querySelectorAll('.navitem');
+        for (var i = 0; i < navItem.length; i++) {
+            if(a[i].innerHTML === this.props.state.pathname){
+                navItem[i].className += ' active'
+            } else {
+                navItem[i].className = 'link'
+            }
+        }
         return (
             <div className="navbar-default sidebar" role="navigation">
                 <div className="sidebar-nav navbar-collapse">
                     <ul className="nav in">
                         <li className="link active">
-                            <Link to="/">Dashboard</Link>
+                            <Link className='navitem' to="/">Dashboard</Link>
                         </li>
                         <li className="link">
-                            <Link to="/sales">Sales</Link>
+                            <Link className='navitem' to="/sales">Sales</Link>
                         </li>
                         <li className="link">
-                            <Link to="/expenses">Expenses</Link>
+                            <Link className='navitem' to="/expenses">Expenses</Link>
                         </li>
                         <li className="link">
-                            <Link to="/menu">Menu</Link>
+                            <Link className='navitem' to="/menu">Menu</Link>
                         </li>
                         <li className="link">
-                            <Link to="/staff">Staff</Link>
+                            <Link className='navitem' to="/staff">Staff</Link>
                         </li>
                     </ul>
                 </div>
@@ -45,4 +46,14 @@ class Sidenav extends Component {
     }
 }
 
-export default Sidenav;
+const mapStateToProps = state => {
+    return {
+        state: state.state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    updatePathname
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidenav);

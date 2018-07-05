@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { updatePathname } from '../../store/state/state.actions';
+import { bindActionCreators } from 'redux';
 
 class Title extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
+
+    componentWillMount() {
+        this.props.updatePathname(this.props.title)
+    }
+
     render() { 
         return ( 
             <div className='row' >
@@ -16,4 +24,14 @@ class Title extends Component {
     }
 }
  
-export default Title;
+const mapStateToProps = state => {
+    return {
+        state: state.state
+    }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+    updatePathname
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Title)
