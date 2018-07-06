@@ -39,7 +39,7 @@ class Sidenav extends Component {
                             <Link className='navitem' to={this.state.path+"/menu"}>Menu</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to={this.state.path+"/staff"}>Staff</Link>
+                            <Link className='navitem' to={this.state.path+"/restaurant"}>Restaurant</Link>
                         </li>
                     </ul>
                 </div>

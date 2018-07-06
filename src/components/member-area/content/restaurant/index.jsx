@@ -9,8 +9,8 @@ class Staff extends Component {
     render() { 
         return ( 
             <div>
-                <Title title={'Staff'}/>
-                <h1> Staff </h1>
+                <Title title={'Restaurant'}/>
+                <h1> Restaurant </h1>
             </div>
          )
     }

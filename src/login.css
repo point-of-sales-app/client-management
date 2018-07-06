@@ -58,12 +58,13 @@
     text-align: center;
 }
 
-.register-anchor {
-	color: cadetblue;
+#register-anchor {
+	color: cadetblue !important;
+	cursor: pointer !important;
 }
 
-.register-anchor:hover {
-	color: cadetblue;
+#register-anchor:hover {
+	color: rgb(75, 126, 128) !important;
 }
 
 label {

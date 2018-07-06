@@ -42,7 +42,7 @@ class LoginForm extends Component {
                             <button className="login-btn" onClick={this.login}>Masuk</button>
                             <p>
                                 Belum punya akun?
-                            <a className="register-anchor" href="#" data-toggle="modal" data-target="#register-modal"> Daftar di sini</a>
+                            <a id="register-anchor" data-toggle="modal" data-target="#register-modal"> Daftar di sini</a>
                             </p>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import Dashboard from './dashboard';
 import Sales from './sales';
 import Expenses from './expenses';
 import Menu from './menu';
-import Staff from './staff';
+import Restaurant from './restaurant';
 
 class Content extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class Content extends Component {
                     <Route path={this.state.path+'/sales'} component={Sales} />
                     <Route path={this.state.path+'/expenses'} component={Expenses} />
                     <Route path={this.state.path+'/menu'} component={Menu} />
-                    <Route path={this.state.path+'/staff'} component={Staff} />
+                    <Route path={this.state.path+'/restaurant'} component={Restaurant} />
                     <Redirect from={this.state.path} to={this.state.path+'/dashboard'} />
                 </Switch>
             </div>
