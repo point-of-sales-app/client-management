@@ -1,23 +1,33 @@
 import {
-    REGISTER
+    REGISTER_SUCCESS,
+    REGISTER_ERROR,
+    REGISTER_LOADING,
 } from './user.actionTypes';
 
 const initialState = {
-    id: 0,
-    name: '',
-    email: '',
-    role: 0
+    registerLoading: false,
+    registerError: false
 }
 
 const reducers = (state = initialState, action) => {
     switch (action.type) {
-        case REGISTER:
+        case REGISTER_SUCCESS:
             return {
                 ...state,
-                id: action.payload.id,
-                name: action.payload.name,
-                email: action.payload.email,
-                role: action.payload.role,
+                registerLoading: false,
+                registerError: false
+            }
+        case REGISTER_LOADING:
+            return {
+                ...state,
+                registerError: false,
+                registerLoading: true,
+            }
+        case REGISTER_ERROR:
+            return {
+                ...state,
+                registerLoading: false,
+                registerError: true
             }
         default:
             return state;

@@ -7,7 +7,9 @@ import { bindActionCreators } from 'redux';
 class Sidenav extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            path: '/member-area'
+        }
     }
 
     render() {
@@ -25,19 +27,19 @@ class Sidenav extends Component {
                 <div className="sidebar-nav navbar-collapse">
                     <ul className="nav in">
                         <li className="link active">
-                            <Link className='navitem' to="/">Dashboard</Link>
+                            <Link className='navitem' to={this.state.path+"/dashboard"}>Dashboard</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to="/sales">Sales</Link>
+                            <Link className='navitem' to={this.state.path+"/sales"}>Sales</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to="/expenses">Expenses</Link>
+                            <Link className='navitem' to={this.state.path+"/expenses"}>Expenses</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to="/menu">Menu</Link>
+                            <Link className='navitem' to={this.state.path+"/menu"}>Menu</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to="/staff">Staff</Link>
+                            <Link className='navitem' to={this.state.path+"/restaurant"}>Restaurant</Link>
                         </li>
                     </ul>
                 </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePathname } from '../../store/state/state.actions';
+import { updatePathname } from '../../../store/state/state.actions';
 import { bindActionCreators } from 'redux';
 
 class Title extends Component {
