@@ -1,0 +1,1 @@
+export const UPDATE_PATHNAME = 'UPDATE_PATHNAME';

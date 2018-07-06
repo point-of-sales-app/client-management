@@ -1,21 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import './main.css';
+import './util.css';
+import { BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Header from './components/header';
+import Sidenav from './components/sidenav';
+import Content from './components/content';
+import LoginPage from './components/login';
 
 class App extends Component {
+  
   render() {
+    if(!localStorage.getItem('token')) {
+      return (
+        <BrowserRouter>
+          <div className="App">
+            <LoginPage />
+          </div>
+        </BrowserRouter>
+      );
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Sidenav />
+          <Content />
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      user: state.user
+  }
+}
+
+export default connect(mapStateToProps, null)(App)
