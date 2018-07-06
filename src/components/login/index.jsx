@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
 import Login from './loginForm';
 import Register from './registerForm';
 
@@ -8,16 +7,13 @@ class LoginPage extends Component {
         super(props);
         this.state = {  }
     }
-    render() { 
+    render() {
         return (  
-            <div className='limiter'>
-            <Login />
-                {/* <Switch>
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/register" component={Register} />
-                    <Redirect from='/login' to='/' />
-                </Switch> */}
+            <div>
+                <Login/>
+                <Register />
             </div>
+                
         )
     }
 }

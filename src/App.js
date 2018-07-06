@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import './main.css';
-import './util.css';
-import { BrowserRouter } from 'react-router-dom';
+import './login.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from './components/header';
-import Sidenav from './components/sidenav';
-import Content from './components/content';
+// import Header from './components/header';
+// import Sidenav from './components/sidenav';
+// import Content from './components/content';
+import MemberArea from './components/member-area';
 import LoginPage from './components/login';
 
 class App extends Component {
-  
+
   render() {
-    if(!localStorage.getItem('token')) {
+    if(!localStorage.getItem('token')){
       return (
         <BrowserRouter>
           <div className="App">
-            <LoginPage />
+            <Switch>
+              <Route path="/login" component={LoginPage} />
+              <Redirect from='/' to='/login' />
+            </Switch>
           </div>
         </BrowserRouter>
       );
@@ -25,9 +28,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Header />
-          <Sidenav />
-          <Content />
+          <Switch>
+            <Route path="/member-area" component={MemberArea} />
+            <Redirect from='/' to='/member-area' />
+          </Switch>
         </div>
       </BrowserRouter>
     );
@@ -36,7 +40,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-      user: state.user
+    user: state.user
   }
 }
 

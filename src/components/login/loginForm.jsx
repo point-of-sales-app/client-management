@@ -6,48 +6,46 @@ import { bindActionCreators } from 'redux';
 class LoginForm extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {}
     }
 
     login = () => {
-        const email = document.querySelector('#email').value;
-        const password = document.querySelector('#password').value;
-        this.props.login(email, password);
+        const email = document.querySelector('#emailLogin').value;
+        const password = document.querySelector('#passwordLogin').value;
+        this.props.login({
+            email, 
+            password
+        });
     }
 
-    render() { 
-        return (  
-            <div className='container-login100'>
-                <div className="wrap-login100 p-t-50 p-b-90">
-                    <form className="login100-form validate-form flex-sb flex-w">
-                        <span className="login100-form-title p-b-51">Login</span>
-                        <div className="wrap-input100 validate-input m-b-16" data-validate="Username is required">
-                            <input id='email' className="input100" type="text" name="username" placeholder="Username"/>
-                            <span className="focus-input100"></span>
+    render() {
+        return (
+            <div className="container" id="login-modal" role="dialog">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h4 className="modal-title">
+                                <span className="glyphicon glyphicon-log-in"></span> Silakan masuk ke dalam akunmu</h4>
                         </div>
-                        <div className="wrap-input100 validate-input m-b-16" data-validate="Password is required">
-                            <input id='password' className="input100" type="password" name="pass" placeholder="Password"/>
-                            <span className="focus-input100"></span>
-                        </div>
-                        <div className="flex-sb-m w-full p-t-3 p-b-24">
-                            <div className="contact100-form-checkbox">
-                                <input className="input-checkbox100" id="ckb1" type="checkbox" name="remember-me"/>
-                                <label className="label-checkbox100" for="ckb1">
-                                    Remember me
-                                </label>
+                        <div className="modal-body-login">
+                            <div className="form-group">
+                                <label htmlFor="emailLogin">Email</label>
+                                <input type="text" className="form-control" id="emailLogin" />
                             </div>
-                            <div>
-                                <a href="#" className="txt1">
-                                    Forgot?
-                                </a>
+                            <div className="form-group">
+                                <label htmlFor="passwordLogin">Password</label>
+                                <input type="password" className="form-control" id="passwordLogin" />
                             </div>
                         </div>
-                    </form>
-                    <div className="container-login100-form-btn m-t-17">
-                            <button className="login100-form-btn" onClick={this.login}>
-                                Hello
-                            </button>
+                        <div className="modal-footer-login text-centered">
+
+                            <button className="login-btn" onClick={this.login}>Masuk</button>
+                            <p>
+                                Belum punya akun?
+                            <a className="register-anchor" href="#" data-toggle="modal" data-target="#register-modal"> Daftar di sini</a>
+                            </p>
                         </div>
+                    </div>
                 </div>
             </div>
         )

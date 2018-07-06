@@ -9,18 +9,20 @@ import Staff from './staff';
 class Content extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            path: '/member-area'
+        }
     }
     render() {
         return (
             <div className="page-wrapper">
                 <Switch>
-                    <Route exact path="/" component={Dashboard} />
-                    <Route path="/sales" component={Sales} />
-                    <Route path="/expenses" component={Expenses} />
-                    <Route path="/menu" component={Menu} />
-                    <Route path="/staff" component={Staff} />
-                    <Redirect from='/' to='/' />
+                    <Route path={this.state.path+'/dashboard'} component={Dashboard} />
+                    <Route path={this.state.path+'/sales'} component={Sales} />
+                    <Route path={this.state.path+'/expenses'} component={Expenses} />
+                    <Route path={this.state.path+'/menu'} component={Menu} />
+                    <Route path={this.state.path+'/staff'} component={Staff} />
+                    <Redirect from={this.state.path} to={this.state.path+'/dasboard'} />
                 </Switch>
             </div>
         )
