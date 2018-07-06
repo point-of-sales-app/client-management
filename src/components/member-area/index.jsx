@@ -8,6 +8,13 @@ class MemberArea extends Component {
         super(props);
         this.state = {}
     }
+
+    componentDidMount () {
+        if(!localStorage.getItem('token')){
+            this.props.history.push('/login')
+        }
+    }
+
     render() {
         return (
             <div>

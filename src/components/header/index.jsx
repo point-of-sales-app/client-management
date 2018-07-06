@@ -1,22 +1,43 @@
 import React, { Component } from 'react';
+import jwt from 'jsonwebtoken';
+import { withRouter } from 'react-router-dom'
 
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            name: ''
+        }
     }
-    render() { 
-        return ( 
+
+    componentDidMount() {
+        if(localStorage.getItem('token')){
+            const decoded = jwt.verify(localStorage.getItem('token'), 'ggwp');
+            this.setState({
+                name: decoded.name
+            })
+        }
+    }
+
+    logout = () => {
+        localStorage.clear('token');
+        this.props.history.push('/login')
+        // console.log(this.props)
+    }
+
+    render() {
+        return (
             <nav className="navbar navbar-default fixed-top navbar-expand-lg">
                 <a className="navbar-brand" href="/">Simple POS</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <div className="ml-auto">
+                    <span className="navbar-text">
+                        Halo, {this.state.name}
+                    </span>
+                    <button className="btn btn-danger" onClick={this.logout}>Logout</button>
                 </div>
             </nav>
         )
     }
 }
- 
-export default Header;
+
+export default withRouter(Header);

@@ -59,7 +59,7 @@ const registerError = () => {
 export const login = (payload) => {
     return dispatch => {
         swal({
-            text: 'Silakan tunggu sebentar',
+            text: 'Mohon tunggu sebentar...',
             onOpen: () => {
                 swal.showLoading()
                 axios.post('http://localhost:3001/login', {
@@ -76,7 +76,7 @@ export const login = (payload) => {
                     } else if (data.status === 200) {
                         console.log(data)
                         localStorage.setItem('token', data.data.user.token)
-                        window.location.href = '/member-area';
+                        window.location.href = '/member-area/dashboard';
                     } else if (data.status === 404) {
                         swal({
                             type: 'error',

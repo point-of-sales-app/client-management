@@ -13,24 +13,25 @@ import LoginPage from './components/login';
 class App extends Component {
 
   render() {
-    if(!localStorage.getItem('token')){
-      return (
-        <BrowserRouter>
-          <div className="App">
-            <Switch>
-              <Route path="/login" component={LoginPage} />
-              <Redirect from='/' to='/login' />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      );
-    }
+    // if(!localStorage.getItem('token')){
+    //   return (
+    //     <BrowserRouter>
+    //       <div className="App">
+    //         <Switch>
+    //           <Route path="/login" component={LoginPage} />
+    //           <Redirect from='/' to='/login' />
+    //         </Switch>
+    //       </div>
+    //     </BrowserRouter>
+    //   );
+    // }
     return (
       <BrowserRouter>
         <div className="App">
           <Switch>
             <Route path="/member-area" component={MemberArea} />
-            <Redirect from='/' to='/member-area' />
+            <Route path="/login" component={LoginPage} />
+            <Redirect from='/' to='/login' />
           </Switch>
         </div>
       </BrowserRouter>

@@ -22,7 +22,7 @@ class Content extends Component {
                     <Route path={this.state.path+'/expenses'} component={Expenses} />
                     <Route path={this.state.path+'/menu'} component={Menu} />
                     <Route path={this.state.path+'/staff'} component={Staff} />
-                    <Redirect from={this.state.path} to={this.state.path+'/dasboard'} />
+                    <Redirect from={this.state.path} to={this.state.path+'/dashboard'} />
                 </Switch>
             </div>
         )

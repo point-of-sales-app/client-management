@@ -27,6 +27,11 @@ body {
   /* border-color: #e7e7e7; */
 }
 
+.navbar-text {
+  color: white;
+  margin-right: 20px;
+}
+
 .sidebar {
   z-index: 1;
   width: 250px;
@@ -95,4 +100,8 @@ a {
 a:hover {
   text-decoration: none;
   color: #fff;
+}
+
+.ic-logout {
+  color: white;
 }
