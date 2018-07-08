@@ -76,7 +76,7 @@ export const login = (payload) => {
                     } else if (data.status === 200) {
                         console.log(data)
                         localStorage.setItem('token', data.data.user.token)
-                        window.location.href = '/member-area/dashboard';
+                        window.location.href = '/restaurant';
                     } else if (data.status === 404) {
                         swal({
                             type: 'error',

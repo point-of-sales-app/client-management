@@ -9,6 +9,7 @@ body {
   padding: 0;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
+  height: 100vh;
 }
 
 .nav {
@@ -104,4 +105,74 @@ a:hover {
 
 .ic-logout {
   color: white;
+}
+
+.centered-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.restaurant-content {
+  width: 480px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0.5px 0.5px 4px #a3a3a3;
+}
+
+.restaurant-content h3 {
+  margin: 30px;
+  padding: 20px 0 0 20px;
+}
+
+.login-content {
+  width: 480px;
+  border-radius: 15px;
+  box-shadow: 0.5px 0.5px 4px #a3a3a3;
+}
+
+.loading-spinner {
+  width: 100%;
+  height: auto;
+  padding-left: 50px;
+}
+
+.restaurant-item-container {
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 7px 50px 7px 50px;
+  transition: background-color 0.5s;
+}
+
+.restaurant-item-container:hover {
+  background-color: #f3f3f3;
+}
+
+.restaurant-item-container h6,p {
+  margin: 0;
+}
+
+.restaurant-item-container h6 {
+  font-weight: bold;
+}
+
+.add-restaurant-container {
+  cursor: pointer;
+  background-color: #ffffff;
+  padding: 10px 50px 10px 50px;
+  transition: background-color 0.5s;
+}
+
+.add-restaurant-container:hover {
+  background-color: #f3f3f3;
+}
+
+.add-restaurant {
+  margin: 0;
+  font-weight: bold;
+  color: cornflowerblue;
 }

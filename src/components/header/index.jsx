@@ -20,7 +20,7 @@ class Header extends Component {
     }
 
     logout = () => {
-        localStorage.clear('token');
+        localStorage.clear();
         this.props.history.push('/login')
         // console.log(this.props)
     }

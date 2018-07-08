@@ -13,6 +13,9 @@ class MemberArea extends Component {
         if(!localStorage.getItem('token')){
             this.props.history.push('/login')
         }
+        if(!localStorage.getItem('resid')){
+            this.props.history.push('/restaurant')
+        }
     }
 
     render() {
