@@ -73,7 +73,7 @@ a {
 .page-wrapper {
   position: inherit;
   margin: 0 0 0 250px;
-  padding: 56px 30px 0 30px;
+  padding: 56px 30px 30px 30px;
   border-left: 1px solid #e7e7e7;
   background-color: white;
 }
@@ -192,11 +192,11 @@ a:hover {
 }
 
 .category-item {
+  min-width: 72px;
   height: 48px;
-  border: 2px solid #a3a3a3;
+  border: 0.5px solid #a3a3a3;
   text-align: center;
   cursor: pointer;
-  /* align-items: center; */
 }
 
 .category-item:hover {
@@ -216,4 +216,50 @@ a:hover {
 .add-category {
   cursor: pointer;
   color: cornflowerblue !important;
+}
+
+.menu-container {
+  margin-top: 16px;
+  padding: 0;
+  /* border: 1px solid #a3a3a3;
+  border-radius: 5px; */
+}
+
+.menu-card {
+  width: 12rem;
+  min-height: 172px;
+}
+
+.card-title {
+  margin-bottom: 5px;
+}
+
+.card-text {
+  margin-bottom: 10px;
+}
+
+.btn-delete {
+  margin-left: 5px;
+}
+
+.menu-item-container {
+  padding-left: 0;
+  padding-bottom: 12px;
+}
+
+.add-menu-container {
+  cursor: pointer;
+  background-color: #55688a;
+}
+
+.add-menu-body {
+  text-align: center;
+  margin: 0 auto;
+  align-self: center;
+  padding: 65px 0;
+  color: white;
+}
+
+.add-menu-body h5{
+  margin: 0;
 }

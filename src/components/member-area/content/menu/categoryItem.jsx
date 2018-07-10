@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setCategory } from '../../../../store/menu/menu.actions';
+import { setCategory, getMenu } from '../../../../store/menu/menu.actions';
 import { bindActionCreators } from 'redux';
 
 class CategoryItem extends Component {
@@ -9,8 +9,11 @@ class CategoryItem extends Component {
         this.state = {}
     }
 
-    setCategory = () => {
-        this.props.setCategory(this.props.data.id)
+    setCategory = async () => {
+        await this.props.setCategory(this.props.data.id)
+        this.props.getMenu({
+            categoryId: this.props.menu.selectedCategoryId
+        })
     }
 
     render() {
@@ -37,7 +40,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-    setCategory
+    setCategory,
+    getMenu
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);

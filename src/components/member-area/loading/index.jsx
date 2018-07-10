@@ -10,10 +10,10 @@ class Loading extends Component {
         return (
             // <div className="centered-container loading-container">
             //     <h3>Getting your data...</h3>
-                <ClipLoader
-                    color={'#ffffff'}
-                // loading={this.props.restaurant.getRestaurantLoading}
-                />
+            <ClipLoader
+                color={'#3d4b63'}
+                loading={this.props.loading}
+            />
             // </div>
         )
     }

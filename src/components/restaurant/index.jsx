@@ -13,7 +13,7 @@ class Restaurant extends Component {
     }
 
     componentDidMount() {
-        if(!localStorage.getItem('token')){
+        if (!localStorage.getItem('token')) {
             this.props.history.push('/login')
         }
         localStorage.removeItem('resid');
@@ -28,10 +28,16 @@ class Restaurant extends Component {
         }).queue([
             {
                 title: 'Nama Restaurant',
-                input: 'text'
+                input: 'text',
+                inputValidator: (result) => {
+                    return !result.trim() && 'Nama restaurant tidak boleh kosong'
+                }
             }, {
                 title: 'Alamat Restaurant',
-                input: 'text'
+                input: 'text',
+                inputValidator: (result) => {
+                    return !result.trim() && 'Alamat restaurant tidak boleh kosong'
+                }
             }, {
                 title: 'Email Restaurant',
                 input: 'text',
@@ -48,7 +54,7 @@ class Restaurant extends Component {
                 confirmButtonText:
                     'Continue <i class="fa fa-arrow-right></i>'
             }
-        ]).then( (result) => {
+        ]).then((result) => {
             if (result.value) {
                 const restaurantData = {
                     name: result.value[0],
@@ -62,7 +68,7 @@ class Restaurant extends Component {
     }
 
     validateEmail(email) {
-        if(!email) {
+        if (!email) {
             return true
         }
         // eslint-disable-next-line
