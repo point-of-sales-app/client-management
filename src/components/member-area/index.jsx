@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../header';
-import Sidenav from '../sidenav';
+import Header from './header';
+import Sidenav from './sidenav';
 import Content from './content';
 
 class MemberArea extends Component {
@@ -12,6 +12,9 @@ class MemberArea extends Component {
     componentDidMount () {
         if(!localStorage.getItem('token')){
             this.props.history.push('/login')
+        }
+        if(!localStorage.getItem('resid')){
+            this.props.history.push('/restaurant')
         }
     }
 

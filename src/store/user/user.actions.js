@@ -74,9 +74,8 @@ export const login = (payload) => {
                             showConfirmButton: true,
                         })
                     } else if (data.status === 200) {
-                        console.log(data)
                         localStorage.setItem('token', data.data.user.token)
-                        window.location.href = '/member-area/dashboard';
+                        window.location.href = '/restaurant';
                     } else if (data.status === 404) {
                         swal({
                             type: 'error',
@@ -88,8 +87,8 @@ export const login = (payload) => {
                 }).catch(err => {
                     swal({
                         type: 'error',
-                        title: 'E-mail atau password yang kamu masukkan salah',
-                        text: 'Silakan coba lagi.',
+                        title: 'Server offline',
+                        text: 'Silakan coba beberapa saat lagi.',
                         showConfirmButton: true,
                     })
                 })
