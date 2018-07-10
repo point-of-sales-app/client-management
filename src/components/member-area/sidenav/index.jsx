@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { updatePathname } from '../../store/state/state.actions';
+import { updatePathname } from '../../../store/state/state.actions';
 import { bindActionCreators } from 'redux';
 
 class Sidenav extends Component {

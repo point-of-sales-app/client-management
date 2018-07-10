@@ -2,7 +2,10 @@ import {
     GET_RESTAURANT_SUCCESS,
     GET_RESTAURANT_LOADING,
     GET_RESTAURANT_ERROR,
-    CREATE_RESTAURANT_SUCCESS
+    CREATE_RESTAURANT_SUCCESS,
+    GET_RESTAURANT_BYID_SUCCESS,
+    GET_RESTAURANT_BYID_LOADING,
+    GET_RESTAURANT_BYID_ERROR
 } from './restaurant.actionTypes'
 import swal from 'sweetalert2';
 import axios from '../../axios';
@@ -75,5 +78,38 @@ const createRestaurantSuccess = (payload) => {
     return {
         type: CREATE_RESTAURANT_SUCCESS,
         payload
+    }
+}
+
+export const getRestaurantById = (payload) => {
+    return dispatch => {
+        dispatch(getRestaurantByIdLoading());
+        axios.get(`/restaurant/find?id=${localStorage.getItem('resid')}`)
+            .then(data => {
+                dispatch(getRestaurantByIdSuccess(data.data.data))
+            })
+            .catch(err => {
+                console.log(err);
+                dispatch(getRestaurantByIdError());
+            })
+    }
+}
+
+const getRestaurantByIdSuccess = (payload) => {
+    return {
+        type: GET_RESTAURANT_BYID_SUCCESS,
+        payload
+    }
+}
+
+const getRestaurantByIdLoading = () => {
+    return {
+        type: GET_RESTAURANT_BYID_LOADING
+    }
+}
+
+const getRestaurantByIdError = () => {
+    return {
+        type: GET_RESTAURANT_BYID_ERROR
     }
 }

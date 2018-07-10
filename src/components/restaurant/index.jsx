@@ -71,7 +71,6 @@ class Restaurant extends Component {
     }
 
     render() {
-        console.log(this.props.restaurant.restaurants)
         return (
             <div className="centered-container">
                 <div className="restaurant-content">

@@ -2,13 +2,19 @@ import {
     GET_RESTAURANT_SUCCESS,
     GET_RESTAURANT_LOADING,
     GET_RESTAURANT_ERROR,
-    CREATE_RESTAURANT_SUCCESS
+    CREATE_RESTAURANT_SUCCESS,
+    GET_RESTAURANT_BYID_SUCCESS,
+    GET_RESTAURANT_BYID_LOADING,
+    GET_RESTAURANT_BYID_ERROR
 } from './restaurant.actionTypes';
 
 const initialState = {
     restaurants: [],
+    restaurant: {},
     getRestaurantLoading: false,
-    getRestaurantError: false
+    getRestaurantError: false,
+    getRestaurantByIdLoading: false,
+    getRestaurantByIdError: false,
 }
 
 const reducers = (state = initialState, action) => {
@@ -36,6 +42,25 @@ const reducers = (state = initialState, action) => {
             state.restaurants.push(action.payload);
             return {
                 ...state
+            }
+        case GET_RESTAURANT_BYID_SUCCESS:
+            return {
+                ...state,
+                restaurant: action.payload,
+                getRestaurantByIdLoading: false,
+                getRestaurantByIdError: false
+            }
+        case GET_RESTAURANT_BYID_LOADING:
+            return {
+                ...state,
+                getRestaurantByIdError: false,
+                getRestaurantByIdLoading: true,
+            }
+        case GET_RESTAURANT_BYID_ERROR:
+            return {
+                ...state,
+                getRestaurantByIdLoading: false,
+                getRestaurantByIdError: true
             }
         default:
             return state;

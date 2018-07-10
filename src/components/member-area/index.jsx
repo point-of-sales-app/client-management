@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../header';
-import Sidenav from '../sidenav';
+import Header from './header';
+import Sidenav from './sidenav';
 import Content from './content';
 
 class MemberArea extends Component {

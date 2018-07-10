@@ -117,6 +117,16 @@ a:hover {
   align-items: center;
 }
 
+.loading-container {
+  background-color: #eeeeee;
+  flex-direction: column !important;
+}
+
+.loading-container h3 {
+  padding: 20px;
+  margin: 0;
+}
+
 .restaurant-content {
   width: 480px;
   height: 500px;
@@ -175,4 +185,35 @@ a:hover {
   margin: 0;
   font-weight: bold;
   color: cornflowerblue;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.category-item {
+  height: 48px;
+  border: 2px solid #a3a3a3;
+  text-align: center;
+  cursor: pointer;
+  /* align-items: center; */
+}
+
+.category-item:hover {
+  background-color: #55688a;
+  color: white;
+}
+
+.category-item-selected {
+  background-color: #55688a;
+  color: white;
+}
+
+.category-item p {
+  padding: 12px 12px;
+}
+
+.add-category {
+  cursor: pointer;
+  color: cornflowerblue !important;
 }
