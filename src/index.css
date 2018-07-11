@@ -197,6 +197,7 @@ a:hover {
   border: 0.5px solid #a3a3a3;
   text-align: center;
   cursor: pointer;
+  transition: background-color 0.5s;
 }
 
 .category-item:hover {
@@ -250,6 +251,11 @@ a:hover {
 .add-menu-container {
   cursor: pointer;
   background-color: #55688a;
+  transition: background-color 0.5s;
+}
+
+.add-menu-container:hover {
+  background-color: #475774;
 }
 
 .add-menu-body {
@@ -262,4 +268,21 @@ a:hover {
 
 .add-menu-body h5{
   margin: 0;
+}
+
+.btn-add-staff-container {
+  margin-bottom: 20px;
+}
+
+/* background-color: #55688a;
+  transition: background-color 0.5s; */
+
+.btn-add-staff {
+  color: #fff;
+  background-color: #55688a;
+  transition: background-color 0.5s;
+}
+
+.btn-add-staff:hover {
+  background-color: #475774;
 }

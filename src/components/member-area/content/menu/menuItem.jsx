@@ -21,6 +21,8 @@ class MenuItem extends Component {
                 '<input id="swal-menu-price" class="swal2-input" style="margin-top:0;" value="' + this.props.data.price + '"></input>',
             focusConfirm: false,
             showCancelButton: true,
+            cancelButtonText: "Batal",
+            confirmButtonText: "Ubah",
             preConfirm: () => {
                 return [
                     document.getElementById('swal-menu-name').value,
@@ -36,22 +38,22 @@ class MenuItem extends Component {
                     text: 'Nama menu tidak boleh kosong',
                     type: 'error'
                 })
-            }
-            if (isNaN(formValues[1])) {
+            } else if (isNaN(formValues[1])) {
                 swal({
                     title: 'Gagal',
                     text: 'Harga hanya boleh diisi dengan angka',
                     type: 'error'
                 })
+            } else {
+                const name = formValues[0];
+                const price = formValues[1].replace(/[^\w\s]/gi, '')
+                this.props.updateMenu({
+                    id: this.props.data.id,
+                    name,
+                    categoryId: this.props.menu.selectedCategoryId,
+                    price
+                });
             }
-            const name = formValues[0];
-            const price = formValues[1].replace(/[^\w\s]/gi, '')
-            this.props.updateMenu({
-                id: this.props.data.id,
-                name,
-                categoryId: this.props.menu.selectedCategoryId,
-                price
-            });
         }
     }
 
@@ -63,7 +65,8 @@ class MenuItem extends Component {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya'
+            cancelButtonText: "Batal",
+            confirmButtonText: "Ya",
         }).then((result) => {
             if (result.value) {
                 this.props.deleteMenu({
@@ -83,8 +86,8 @@ class MenuItem extends Component {
                         <p className="card-text">{rupiah(this.props.data.price)}</p>
                     </div>
                     <div className="card-footer">
-                        <a className="btn btn-outline-warning btn-sm" onClick={this.editMenu}>Edit</a>
-                        <a className="btn btn-outline-danger btn-sm btn-delete" onClick={this.deleteMenu}>Delete</a>
+                        <a className="btn btn-outline-warning btn-sm" onClick={this.editMenu}>Ubah</a>
+                        <a className="btn btn-outline-danger btn-sm btn-delete" onClick={this.deleteMenu}>Hapus</a>
                     </div>
                 </div>
             </div>

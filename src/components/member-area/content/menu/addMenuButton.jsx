@@ -12,7 +12,8 @@ class AddMenuButton extends Component {
 
     addRestaurant = () => {
         swal.mixin({
-            confirmButtonText: 'Next &rarr;',
+            confirmButtonText: 'Selanjutnya &rarr;',
+            cancelButtonText: 'Batal',
             showCancelButton: true,
             progressSteps: ['1', '2', '3']
         }).queue([
@@ -38,7 +39,9 @@ class AddMenuButton extends Component {
                 inputValidator: (result) => {
                     var number = result.replace(/./, "");
                     return isNaN(number) && 'Harga hanya boleh diisi dengan angka'
-                }
+                },
+                confirmButtonText:
+                    'Tambahkan Menu</i>'
             }
         ]).then((result) => {
             if (result.value) {

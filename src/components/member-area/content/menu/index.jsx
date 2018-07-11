@@ -17,10 +17,10 @@ class Menu extends Component {
     }
 
     componentDidMount() {
-        if(!localStorage.getItem('token')){
+        if (!localStorage.getItem('token')) {
             this.props.history.push('/login')
         }
-        if(!localStorage.getItem('resid')){
+        if (!localStorage.getItem('resid')) {
             this.props.history.push('/restaurant')
         }
         this.props.getCategories();
@@ -55,7 +55,9 @@ class Menu extends Component {
                                 )
                         }
                         {
-                            this.props.menu.categories.length !== 0 && <AddMenuButton />
+                            this.props.menu.categories.length !== 0 &&
+                            !this.props.menu.getMenuLoading &&
+                            <AddMenuButton />
                         }
                     </div>
                 </div>
