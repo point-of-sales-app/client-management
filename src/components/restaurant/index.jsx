@@ -5,6 +5,7 @@ import { getRestaurant, createRestaurant } from '../../store/restaurant/restaura
 import { bindActionCreators } from 'redux';
 import { PulseLoader } from 'react-spinners';
 import RestaurantItem from './restaurantItem';
+import { isEmailAllowEmpty } from '../../helper/isEmail'
 
 class Restaurant extends Component {
     constructor(props) {
@@ -22,7 +23,8 @@ class Restaurant extends Component {
 
     addNewRestaurant = () => {
         swal.mixin({
-            confirmButtonText: 'Next &rarr;',
+            confirmButtonText: 'Selanjutnya &rarr;',
+            cancelButtonText: "Batal", 
             showCancelButton: true,
             progressSteps: ['1', '2', '3', '4']
         }).queue([
@@ -44,7 +46,7 @@ class Restaurant extends Component {
                 inputPlaceholder:
                     'Kosongi jika tidak ada',
                 inputValidator: (result) => {
-                    return !this.validateEmail(result) && 'Masukkan alamat email yang benar'
+                    return !isEmailAllowEmpty(result) && 'Masukkan alamat email yang benar'
                 }
             }, {
                 title: 'Pajak Restaurant',
@@ -52,7 +54,7 @@ class Restaurant extends Component {
                 inputPlaceholder:
                     'Menggunakan 10% pajak restaurant?',
                 confirmButtonText:
-                    'Continue <i class="fa fa-arrow-right></i>'
+                    'Buat Restaurant</i>'
             }
         ]).then((result) => {
             if (result.value) {
@@ -67,14 +69,14 @@ class Restaurant extends Component {
         })
     }
 
-    validateEmail(email) {
-        if (!email) {
-            return true
-        }
-        // eslint-disable-next-line
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
+    // validateEmail(email) {
+    //     if (!email) {
+    //         return true
+    //     }
+    //     // eslint-disable-next-line
+    //     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //     return re.test(String(email).toLowerCase());
+    // }
 
     render() {
         return (

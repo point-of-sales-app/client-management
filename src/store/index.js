@@ -4,12 +4,14 @@ import state from './state/state.reducers'
 import user from './user/user.reducers'
 import restaurant from './restaurant/restaurant.reducers';
 import menu from './menu/menu.reducers';
+import staff from './staff/staff.reducers';
 
 const reducers = combineReducers ({
     state,
     user,
     restaurant,
-    menu
+    menu,
+    staff
 })
 
 const store = createStore(
