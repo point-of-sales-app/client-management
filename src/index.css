@@ -286,3 +286,16 @@ a:hover {
 .btn-add-staff:hover {
   background-color: #475774;
 }
+
+canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+.margin-t-5 {
+  margin: 5px 0;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
