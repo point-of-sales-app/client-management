@@ -16,8 +16,7 @@ class StaffItem extends Component {
             text: 'Staff yang sudah dihapus tidak akan bisa login kembali',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
             cancelButtonText: "Batal", 
             confirmButtonText: "Ya",
         }).then((result) => {

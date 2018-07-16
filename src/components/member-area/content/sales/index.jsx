@@ -9,7 +9,7 @@ class Sales extends Component {
     render() { 
         return ( 
             <div>
-                <Title title={'Sales'}/>
+                <Title title={'Penjualan'}/>
                 <h1> Sales </h1>
             </div>
          )

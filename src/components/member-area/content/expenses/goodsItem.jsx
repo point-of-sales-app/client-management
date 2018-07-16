@@ -28,6 +28,7 @@ class GoodsItem extends Component {
                 '<option value="5">Pc(s)</option>' +
                 '</select>',
             focusConfirm: false,
+            showCloseButton: true,
             showCancelButton: true,
             cancelButtonColor: '#d33',
             cancelButtonText: 'Hapus',
@@ -51,22 +52,32 @@ class GoodsItem extends Component {
         }
 
         if (editSwal.value) {
-            if (editSwal.value[0].trim().length === 0) {
-                swal({
-                    title: 'Gagal',
-                    text: 'Nama menu tidak boleh kosong',
-                    type: 'error'
-                })
+            // eslint-disable-next-line
+            if (editSwal.value[0] == this.props.data.name
+                // eslint-disable-next-line
+                && editSwal.value[1] == this.props.data.brand
+                // eslint-disable-next-line
+                && editSwal.value[2] == this.props.data.Unit.id) {
+                    //do nothing
+                    console.log('do nothing')
             } else {
-                const name = editSwal.value[0];
-                const brand = editSwal.value[1];
-                const unitid = editSwal.value[2];
-                this.props.updateItem({
-                    id: this.props.data.id,
-                    name,
-                    brand,
-                    unitid
-                })
+                if (editSwal.value[0].trim().length === 0) {
+                    swal({
+                        title: 'Gagal',
+                        text: 'Nama menu tidak boleh kosong',
+                        type: 'error'
+                    })
+                } else {
+                    const name = editSwal.value[0];
+                    const brand = editSwal.value[1];
+                    const unitid = editSwal.value[2];
+                    this.props.updateItem({
+                        id: this.props.data.id,
+                        name,
+                        brand,
+                        unitid
+                    })
+                }
             }
         }
     }
@@ -77,8 +88,7 @@ class GoodsItem extends Component {
             text: 'Barang yang sudah dihapus tidak bisa dikembalikan',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
             cancelButtonText: "Batal",
             confirmButtonText: "Ya",
         }).then((result) => {
@@ -91,7 +101,7 @@ class GoodsItem extends Component {
     render() {
         if (this.props.loading) {
             return (
-                <li className="list-group-item list-group-item-action">
+                <li className="list-group-item">
                     <Loading />
                 </li>
             );
@@ -105,7 +115,7 @@ class GoodsItem extends Component {
             );
         } else {
             return (
-                <li className="list-group-item list-group-item-action">
+                <li className="list-group-item">
                     <p>Anda belum memiliki barang</p>
                 </li>
             );

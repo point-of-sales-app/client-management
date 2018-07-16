@@ -9,7 +9,7 @@ class Dashboard extends Component {
     render() { 
         return ( 
             <div>
-                <Title title={'Dashboard'}/>
+                <Title title={'Beranda'}/>
                 <h1> Dashboard </h1>
             </div>
          )

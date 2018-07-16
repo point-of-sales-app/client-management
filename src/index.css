@@ -296,6 +296,16 @@ canvas {
   margin: 5px 0;
 }
 
-.list-group-item {
+.list-group-item-action {
+  cursor: pointer;
+}
+
+.scrollable {
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 480px;
+}
+
+.pointer {
   cursor: pointer;
 }

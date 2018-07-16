@@ -3,14 +3,22 @@ import {
     GET_ITEM_LOADING,
     GET_ITEM_ERROR,
     GET_UNIT_SUCCESS,
-    CREATE_ITEM_SUCCESS
+    CREATE_ITEM_SUCCESS,
+    GET_EXPENSES_SUCCESS,
+    GET_EXPENSES_LOADING,
+    GET_EXPENSES_ERROR,
+    CREATE_EXPENSES_SUCCESS
 } from './expenses.actionTypes';
 
 const initialState = {
     items: [],
     units: [],
+    expenses: [],
+    sum: 0,
     getItemLoading: false,
     getItemError: false,
+    getExpensesLoading: false,
+    getExpensesError: false,
 }
 
 const reducers = (state = initialState, action) => {
@@ -41,6 +49,31 @@ const reducers = (state = initialState, action) => {
             }
         case CREATE_ITEM_SUCCESS:
             state.items.push(action.payload);
+            return {
+                ...state
+            }
+        case GET_EXPENSES_SUCCESS:
+            return {
+                ...state,
+                sum: action.payload.sum,
+                expenses: action.payload.data,
+                getExpensesLoading: false,
+                getExpensesError: false
+            }
+        case GET_EXPENSES_LOADING:
+            return {
+                ...state,
+                getExpensesError: false,
+                getExpensesLoading: true,
+            }
+        case GET_EXPENSES_ERROR:
+            return {
+                ...state,
+                getExpensesLoading: false,
+                getExpensesError: true
+            }
+        case CREATE_EXPENSES_SUCCESS:
+            state.expenses.push(action.payload);
             return {
                 ...state
             }
