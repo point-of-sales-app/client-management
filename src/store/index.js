@@ -5,13 +5,15 @@ import user from './user/user.reducers'
 import restaurant from './restaurant/restaurant.reducers';
 import menu from './menu/menu.reducers';
 import staff from './staff/staff.reducers';
+import expenses from './expenses/expenses.reducers';
 
 const reducers = combineReducers ({
     state,
     user,
     restaurant,
     menu,
-    staff
+    staff,
+    expenses
 })
 
 const store = createStore(

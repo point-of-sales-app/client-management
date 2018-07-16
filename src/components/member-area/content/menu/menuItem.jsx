@@ -63,8 +63,7 @@ class MenuItem extends Component {
             text: 'Menu yang sudah dihapus tidak bisa dikembalikan',
             type: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#d33',
             cancelButtonText: "Batal",
             confirmButtonText: "Ya",
         }).then((result) => {

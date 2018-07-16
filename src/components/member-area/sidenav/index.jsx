@@ -16,7 +16,7 @@ class Sidenav extends Component {
         const navItem = document.querySelectorAll('.link');
         const a = document.querySelectorAll('.navitem');
         for (var i = 0; i < navItem.length; i++) {
-            if(a[i].innerHTML === this.props.state.pathname){
+            if(a[i].id === this.props.state.pathname){
                 navItem[i].className += ' active'
             } else {
                 navItem[i].className = 'link'
@@ -27,19 +27,19 @@ class Sidenav extends Component {
                 <div className="sidebar-nav navbar-collapse">
                     <ul className="nav in">
                         <li className="link active">
-                            <Link className='navitem' to={this.state.path+"/dashboard"}>Dashboard</Link>
+                            <Link className='navitem' id='Dashboard' to={this.state.path+"/dashboard"}>Beranda</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to={this.state.path+"/sales"}>Sales</Link>
+                            <Link className='navitem' id='Sales' to={this.state.path+"/sales"}>Penjualan</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to={this.state.path+"/expenses"}>Expenses</Link>
+                            <Link className='navitem' id='Expenses' to={this.state.path+"/expenses"}>Belanja</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to={this.state.path+"/menu"}>Menu</Link>
+                            <Link className='navitem' id='Menu' to={this.state.path+"/menu"}>Menu</Link>
                         </li>
                         <li className="link">
-                            <Link className='navitem' to={this.state.path+"/staff"}>Staff</Link>
+                            <Link className='navitem' id='Staff' to={this.state.path+"/staff"}>Staff</Link>
                         </li>
                     </ul>
                 </div>
