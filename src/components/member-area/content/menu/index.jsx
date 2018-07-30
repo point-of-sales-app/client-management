@@ -35,15 +35,17 @@ class Menu extends Component {
                 <Title title={'Menu'} />
                 <div className='container'>
                     <div className='row'>
-                        {
-                            this.props.menu.categories.length !== 0 && <CategoryItemAll />
-                        }
-                        {
-                            this.props.menu.categories.length !== 0
-                            && this.props.menu.categories.map(item =>
-                                <CategoryItem data={item} key={'category ' + item.id} />
-                            )
-                        }
+                        <div className="btn-group">
+                            {
+                                this.props.menu.categories.length !== 0 && <CategoryItemAll />
+                            }
+                            {
+                                this.props.menu.categories.length !== 0
+                                && this.props.menu.categories.map(item =>
+                                    <CategoryItem data={item} key={'category ' + item.id} />
+                                )
+                            }
+                        </div>
                         <AddCategoryButton />
                     </div>
                     <div className='row menu-container'>

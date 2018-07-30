@@ -37,7 +37,7 @@ body {
   z-index: 1;
   width: 250px;
   height: 100%;
-  margin-top: 56px;
+  margin-top: 68px;
   position: fixed;
   top: 0;
   right: 0;
@@ -73,7 +73,7 @@ a {
 .page-wrapper {
   position: inherit;
   margin: 0 0 0 250px;
-  padding: 56px 30px 30px 30px;
+  padding: 46px 30px 30px 30px;
   border-left: 1px solid #e7e7e7;
   background-color: white;
 }
@@ -228,7 +228,7 @@ a:hover {
 
 .menu-card {
   width: 12rem;
-  min-height: 172px;
+  min-height: 134px;
 }
 
 .card-title {
@@ -243,57 +243,23 @@ a:hover {
   margin-left: 5px;
 }
 
-.menu-item-container {
-  padding-left: 0;
-  padding-bottom: 12px;
-}
-
-.add-menu-container {
-  cursor: pointer;
-  background-color: #55688a;
-  transition: background-color 0.5s;
-}
-
-.add-menu-container:hover {
-  background-color: #475774;
-}
-
 .add-menu-body {
   text-align: center;
   margin: 0 auto;
   align-self: center;
-  padding: 65px 0;
-  color: white;
+  padding: 53px 0 0 0;
 }
 
 .add-menu-body h5{
   margin: 0;
 }
 
-.btn-add-staff-container {
-  margin-bottom: 20px;
-}
-
 /* background-color: #55688a;
   transition: background-color 0.5s; */
-
-.btn-add-staff {
-  color: #fff;
-  background-color: #55688a;
-  transition: background-color 0.5s;
-}
-
-.btn-add-staff:hover {
-  background-color: #475774;
-}
 
 canvas {
   display: block;
   margin: 0 auto;
-}
-
-.margin-t-5 {
-  margin: 5px 0;
 }
 
 .list-group-item-action {

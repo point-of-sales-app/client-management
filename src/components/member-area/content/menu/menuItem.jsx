@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateMenu, deleteMenu } from '../../../../store/menu/menu.actions';
 import { bindActionCreators } from 'redux';
 import { rupiah } from '../../../../helper/currency'
+import IoMore from 'react-icons/lib/io/more';
 
 class MenuItem extends Component {
     constructor(props) {
@@ -78,15 +79,23 @@ class MenuItem extends Component {
 
     render() {
         return (
-            <div className="col-auto menu-item-container">
+            <div className="col-auto pl-0 pb-3">
                 <div className="card menu-card">
                     <div className="card-body">
                         <h5 className="card-title">{this.props.data.name}</h5>
-                        <p className="card-text">{rupiah(this.props.data.price)}</p>
                     </div>
-                    <div className="card-footer">
-                        <a className="btn btn-outline-warning btn-sm" onClick={this.editMenu}>Ubah</a>
-                        <a className="btn btn-outline-danger btn-sm btn-delete" onClick={this.deleteMenu}>Hapus</a>
+                    <div className="card-footer bg-dark text-white">
+                        <span>{rupiah(this.props.data.price)}</span>
+                        <a className='float-right pointer' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <IoMore />
+                        </a>
+                        <ul className="dropdown-menu">
+                            <li className='list-group-item list-group-item-action border-0' onClick={this.editMenu}>Ubah</li>
+                            <li className='list-group-item list-group-item-action border-0' onClick={this.deleteMenu}>Hapus</li>
+                        </ul>
+
+                        {/* <a className="btn btn-outline-warning btn-sm" onClick={this.editMenu}>Ubah</a>
+                        <a className="btn btn-outline-danger btn-sm btn-delete" onClick={this.deleteMenu}>Hapus</a> */}
                     </div>
                 </div>
             </div>

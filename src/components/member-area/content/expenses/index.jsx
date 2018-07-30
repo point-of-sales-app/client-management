@@ -92,7 +92,7 @@ class Expenses extends Component {
             if (btn[i].id === this.state.filter) {
                 btn[i].className += ' active'
             } else {
-                btn[i].className = 'btn btn-outline-secondary btn-filter'
+                btn[i].className = 'btn btn-outline-primary btn-filter'
             }
         }
         let dateFrom = '';
@@ -103,16 +103,16 @@ class Expenses extends Component {
                 dateTo = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
                 break;
             case '1':
-                dateFrom = moment().startOf('isoweek').format('YYYY-MM-DD');
-                dateTo = moment().endOf('isoweek').format('YYYY-MM-DD');
+                dateFrom = moment().startOf('isoweek').format('YYYY-MM-DD HH:mm:ss');
+                dateTo = moment().endOf('isoweek').format('YYYY-MM-DD HH:mm:ss');
                 break;
             case '2':
-                dateFrom = moment().startOf('month').format('YYYY-MM-DD');
-                dateTo = moment().endOf('month').format('YYYY-MM-DD');
+                dateFrom = moment().startOf('month').format('YYYY-MM-DD HH:mm:ss');
+                dateTo = moment().endOf('month').format('YYYY-MM-DD HH:mm:ss');
                 break;
             default:
-                dateFrom = moment().startOf('day').format('YYYY-MM-DD');
-                dateTo = moment().endOf('day').format('YYYY-MM-DD');
+                dateFrom = moment().startOf('day').format('YYYY-MM-DD HH:mm:ss');
+                dateTo = moment().endOf('day').format('YYYY-MM-DD HH:mm:ss');
         }
 
         this.props.getExpenses({
@@ -187,8 +187,8 @@ class Expenses extends Component {
                 <div className='row list-expense-container'>
                     <div className='col-3'>
                         <ul className="list-group">
-                            <li className="list-group-item active d-flex w-100 justify-content-between">
-                                <h6 className='margin-t-5 font-weight-bold text-center'>Daftar Barang</h6>
+                            <li className="list-group-item text-white bg-dark d-flex w-100 justify-content-between">
+                                <h6 className='mt-2 font-weight-bold text-center'>Daftar Barang</h6>
                                 <button className='btn btn-sm btn-outline-light' onClick={this.addItem}>Tambah</button>
                             </li>
                             <div className='scrollable'>
@@ -208,9 +208,9 @@ class Expenses extends Component {
                         <div className='row mb-2'>
                             <div className='col align-self-start p-0'>
                                 <div className="btn-group">
-                                    <button type="button" id='0' className="btn btn-outline-secondary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
-                                    <button type="button" id='1' className="btn btn-outline-secondary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
-                                    <button type="button" id='2' className="btn btn-outline-secondary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
+                                    <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
+                                    <button type="button" id='1' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
+                                    <button type="button" id='2' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
                                 </div>
                             </div>
                             <div className='col align-self-end p-0'>

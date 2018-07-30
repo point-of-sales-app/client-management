@@ -35,7 +35,7 @@ class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-default fixed-top navbar-expand-lg">
-                <a className="navbar-brand" href="/">Simple POS</a>
+                <img className="navbar-brand pointer" src="https://storage.googleapis.com/rezapramudhika.com/logo-white.png" alt="logo" height={50} />
                 <div className="ml-auto">
                     {/* <span className="navbar-text">
                         Halo, {this.state.name}
