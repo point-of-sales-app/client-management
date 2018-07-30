@@ -17,19 +17,19 @@ class CategoryItem extends Component {
     }
 
     render() {
-        return (
-            <div className='col-auto padding-0' onClick={this.setCategory}>
-                {
-                    this.props.menu.selectedCategoryId === this.props.data.id ?
-                        <div className='category-item category-item-selected'>
-                            <p>{this.props.data.name}</p>
-                        </div> :
-                        <div className='category-item'>
-                            <p>{this.props.data.name}</p>
-                        </div>
-                }
-            </div>
-        );
+        if (this.props.menu.selectedCategoryId === this.props.data.id) {
+            return (
+                <button type="button" className='btn btn-outline-primary btn-filter active' onClick={this.setCategory}>
+                    {this.props.data.name}
+                </button>
+            )
+        } else {
+            return (
+                <button type="button" className='btn btn-outline-primary btn-filter' onClick={this.setCategory}>
+                    {this.props.data.name}
+                </button>
+            )
+        }
     }
 }
 

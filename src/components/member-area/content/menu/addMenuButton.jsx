@@ -67,9 +67,9 @@ class AddMenuButton extends Component {
 
     render() {
         return (
-            <div className="col-auto menu-item-container" onClick={this.addRestaurant}>
-                <div className="card menu-card add-menu-container">
-                    <div className="card-body add-menu-body">
+            <div className="col-auto pl-0" onClick={this.addRestaurant}>
+                <div className="card menu-card pointer bg-primary">
+                    <div className="card-body add-menu-body text-white">
                         <h5 className="">Tambah menu</h5>
                     </div>
                 </div>

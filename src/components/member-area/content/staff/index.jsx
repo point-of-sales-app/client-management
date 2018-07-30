@@ -76,9 +76,9 @@ class Staff extends Component {
         return (
             <div>
                 <Title title={'Staff'} />
-                <div className='row'>
-                    <div className='col btn-add-staff-container'>
-                        <button id='staff-register-btn' className='btn btn-add-staff' onClick={this.addStaff}>Tambah Staff</button>
+                <div className='row mb-2'>
+                    <div className='col'>
+                        <button id='staff-register-btn' className='btn btn-primary' onClick={this.addStaff}>Tambah Staff</button>
                     </div>
                 </div>
                 <div className='row'>
