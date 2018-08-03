@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import jwt from 'jsonwebtoken';
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { getRestaurantById } from '../../../store/restaurant/restaurant.actions';
@@ -15,12 +14,6 @@ class Header extends Component {
     }
 
     componentDidMount() {
-        // if (localStorage.getItem('token')) {
-        //     const decoded = jwt.verify(localStorage.getItem('token'), 'ggwp');
-        //     this.setState({
-        //         name: decoded.name
-        //     })
-        // }
         if (localStorage.getItem('resid')) {
             this.props.getRestaurantById();
         }
@@ -29,17 +22,13 @@ class Header extends Component {
     logout = () => {
         localStorage.clear();
         this.props.history.push('/login')
-        // console.log(this.props)
     }
 
     render() {
         return (
             <nav className="navbar navbar-default fixed-top navbar-expand-lg">
-                <img className="navbar-brand pointer" src="https://storage.googleapis.com/rezapramudhika.com/logo-white.png" alt="logo" height={50} />
+                <img className="navbar-brand p-0 pointer" src="https://storage.googleapis.com/rezapramudhika.com/logo-white.png" alt="logo" height={50} width={120} />
                 <div className="ml-auto">
-                    {/* <span className="navbar-text">
-                        Halo, {this.state.name}
-                    </span> */}
                     {
                         this.props.restaurant.getRestaurantByIdLoading ?
                             <span className="navbar-text">

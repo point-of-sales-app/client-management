@@ -19,6 +19,12 @@ class Expenses extends Component {
     }
 
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/login')
+        }
+        if (!localStorage.getItem('resid')) {
+            this.props.history.push('/restaurant')
+        }
         this.props.getItem();
         this.props.getUnit();
         const btn = document.querySelectorAll('.btn-filter');
