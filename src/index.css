@@ -275,3 +275,8 @@ canvas {
 .pointer {
   cursor: pointer;
 }
+
+td {
+  word-wrap: break-word;
+  max-width: 260px;
+}

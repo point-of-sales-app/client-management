@@ -15,14 +15,13 @@ class Sales extends Component {
         }
     }
 
-    // componentWillMount() {
-    //     this.setState({
-    //         dateFrom: moment().startOf('day').format('YYYY-MM-DD HH:mm:ss'),
-    //         dateTo: moment().endOf('day').format('YYYY-MM-DD HH:mm:ss')
-    //     })
-    // }
-
     componentDidMount() {
+        if (!localStorage.getItem('token')) {
+            this.props.history.push('/login')
+        }
+        if (!localStorage.getItem('resid')) {
+            this.props.history.push('/restaurant')
+        }
         const btn = document.querySelectorAll('.btn-filter');
         for (var i = 0; i < btn.length; i++) {
             if (btn[i].id === this.state.filter) {
@@ -91,7 +90,9 @@ class Sales extends Component {
                                 {
                                     this.props.sales.getSummaryLoading ?
                                         <h4 className="card-text">Memuat...</h4> :
-                                        <h4 className="card-text">{rupiah(totalSales)}</h4>
+                                        totalSales === 0 ?
+                                            <h4 className="card-text">0</h4> :
+                                            <h4 className="card-text">{rupiah(totalSales)}</h4>
                                 }
                             </div>
                         </div>
@@ -115,23 +116,24 @@ class Sales extends Component {
                                 {
                                     this.props.sales.getSummaryLoading ?
                                         <h4 className="card-text">Memuat...</h4> :
-                                        topSales.map((element, i) =>
-                                            <div key={`topsales ${i}`}>
-                                                <p>{element.category}</p>
-                                                {
-                                                    i === 0 ?
-                                                        <p className='mb-2 font-weight-bold'>{element.name} ({element.count}x)</p> :
-                                                        <p className='font-weight-bold'>{element.name} ({element.count}x)</p>
-                                                }
-                                            </div>
-
-                                        )
+                                        topSales.length === 0 ?
+                                            <p className='font-weight-bold'>-</p> :
+                                            topSales.map((element, i) =>
+                                                <div key={`topsales ${i}`}>
+                                                    <p>{element.category}</p>
+                                                    {
+                                                        i === 0 ?
+                                                            <p className='mb-2 font-weight-bold'>{element.name} ({element.count}x)</p> :
+                                                            <p className='font-weight-bold'>{element.name} ({element.count}x)</p>
+                                                    }
+                                                </div>
+                                            )
                                 }
                             </div>
                         </div>
                     </div>
                     <div className='col-9'>
-                        <div className='row mb-2'>
+                        <div className='row mb-3'>
                             <div className='col align-self-start p-0'>
                                 <div className="btn-group">
                                     <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
@@ -144,7 +146,11 @@ class Sales extends Component {
                             <table className='table table-striped table-bordered'>
                                 <thead className='thead-dark'>
                                     <tr>
-                                        <th scope='col'>Tanggal</th>
+                                        {
+                                            this.state.filter === '0' ?
+                                                <th scope='col'>Pukul</th> :
+                                                <th scope='col'>Tanggal</th>
+                                        }
                                         <th scope='col'>Menu</th>
                                         <th scope='col'>Total</th>
                                     </tr>
@@ -157,16 +163,15 @@ class Sales extends Component {
                                             </tr> :
                                             data.length !== 0 ?
                                                 data.map((item, idx) =>
-                                                    <TransactionItem data={item} key={`transaction ${item.id}`} />
+                                                    <TransactionItem
+                                                        data={item}
+                                                        filter={this.state.filter}
+                                                        key={`transaction ${item.id}`} />
                                                 ) :
                                                 <tr>
                                                     <td colSpan='6'>Anda belum memiliki transaksi</td>
                                                 </tr>
                                     }
-                                    {/* <tr>
-                                    <td colSpan='5'>Total Pengeluaran</td>
-                                    <td colSpan='2'>{rupiah(this.props.expenses.sum)}</td>
-                                </tr> */}
                                 </tbody>
                             </table>
                         </div>
