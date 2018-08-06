@@ -1,0 +1,55 @@
+.category-item {
+    min-width: 72px;
+    height: 48px;
+    border: 0.5px solid #a3a3a3;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+  
+  .category-item:hover {
+    background-color: #55688a;
+    color: white;
+  }
+  
+  .category-item-selected {
+    background-color: #55688a;
+    color: white;
+  }
+  
+  .category-item p {
+    padding: 12px 12px;
+  }
+  
+  .add-category {
+    cursor: pointer;
+    color: cornflowerblue !important;
+  }
+  
+  .menu-card {
+    width: 10rem;
+    min-height: 134px;
+  }
+  
+  .card-title {
+    margin-bottom: 5px;
+  }
+  
+  .card-text {
+    margin-bottom: 10px;
+  }
+  
+  .btn-delete {
+    margin-left: 5px;
+  }
+  
+  .add-menu-body {
+    text-align: center;
+    margin: 0 auto;
+    align-self: center;
+    padding: 53px 0 0 0;
+  }
+  
+  .add-menu-body h5{
+    margin: 0;
+  }

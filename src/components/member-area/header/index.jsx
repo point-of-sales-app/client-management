@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { getRestaurantById } from '../../../store/restaurant/restaurant.actions';
-import { bindActionCreators } from 'redux';
-import * as MD from 'react-icons/lib/md'
+import './header.css'
 
 class Header extends Component {
     constructor(props) {
@@ -14,9 +10,7 @@ class Header extends Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem('resid')) {
-            this.props.getRestaurantById();
-        }
+        
     }
 
     logout = () => {
@@ -24,36 +18,24 @@ class Header extends Component {
         this.props.history.push('/login')
     }
 
+    openNav = () => {
+        if (document.getElementById('mySidenav').style.width === '250px') {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("page-wrapper").style.marginLeft = "0";
+        } else {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("page-wrapper").style.marginLeft = "250px";
+        }
+    }
+
     render() {
         return (
             <nav className="navbar navbar-default fixed-top navbar-expand-lg">
-                <img className="navbar-brand p-0 pointer" src="https://storage.googleapis.com/rezapramudhika.com/logo-white.png" alt="logo" height={50} width={120} />
-                <div className="ml-auto">
-                    {
-                        this.props.restaurant.getRestaurantByIdLoading ?
-                            <span className="navbar-text">
-                                loading...
-                            </span> :
-                            <span className="navbar-text">
-                                <MD.MdStore size={22} />
-                                {this.props.restaurant.restaurant.name}
-                                <Link to='/restaurant'> (change)</Link>
-                            </span>
-                    }
-                    <button className="btn btn-danger" onClick={this.logout}>Logout</button>
-                </div>
+                <span id='toogle-nav' className="toogle-nav text-white" onClick={this.openNav}>&#9776; <img className="navbar-brand p-0 pointer ml-2" src="https://storage.googleapis.com/rezapramudhika.com/logo-white.png" alt="logo" height={50} width={120} /></span>
+
             </nav>
         )
     }
 }
-const mapStateToProps = state => {
-    return {
-        restaurant: state.restaurant
-    }
-}
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({
-    getRestaurantById
-}, dispatch)
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default Header;

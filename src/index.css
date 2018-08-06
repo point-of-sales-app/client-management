@@ -12,101 +12,6 @@ body {
   height: 100vh;
 }
 
-.nav {
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-
-.navbar {
-  background-color: #3d4b63 !important;
-  border: 1px solid transparent;
-}
-
-.navbar-default {
-  background-color: #55688a;
-  /* border-color: #e7e7e7; */
-}
-
-.navbar-text {
-  color: white;
-  margin-right: 20px;
-}
-
-.sidebar {
-  z-index: 1;
-  width: 250px;
-  height: 100%;
-  margin-top: 68px;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-}
-
-.sidebar ul li {
-  width: 100%;
-  border-bottom: 1px solid #e7e7e7;
-  text-align: left
-}
-
-.nav>li {
-  position: relative;
-  display: block;
-}
-
-.nav>li:hover {
-  background-color: #3d4b63 
-}
-
-.nav>li>a {
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.page-wrapper {
-  position: inherit;
-  margin: 0 0 0 250px;
-  padding: 46px 30px 30px 30px;
-  border-left: 1px solid #e7e7e7;
-  background-color: white;
-}
-
-.row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-.active {
-  background-color: #d8d8d8
-}
-
-.active a {
-  color: black;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #fff;
-}
-
-.ic-logout {
-  color: white;
-}
-
 .centered-container {
   width: 100%;
   height: 100vh;
@@ -117,149 +22,32 @@ a:hover {
   align-items: center;
 }
 
-.loading-container {
-  background-color: #eeeeee;
-  flex-direction: column !important;
+#page-wrapper {
+  position: relative;
+  margin-left: 250px;
+  transition: margin-left .5s;
+  margin-top: 89px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-left: 1px solid #e7e7e7;
+  background-color: white;
 }
 
-.loading-container h3 {
-  padding: 20px;
-  margin: 0;
+.title {
+  padding-bottom: 9px;
+  margin: 10px 0 20px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
 }
 
-.restaurant-content {
-  width: 480px;
-  height: 500px;
-  border-radius: 15px;
-  box-shadow: 0.5px 0.5px 4px #a3a3a3;
+a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.restaurant-content h3 {
-  margin: 30px;
-  padding: 20px 0 0 20px;
-}
-
-.login-content {
-  width: 480px;
-  border-radius: 15px;
-  box-shadow: 0.5px 0.5px 4px #a3a3a3;
-}
-
-.loading-spinner {
-  width: 100%;
-  height: auto;
-  padding-left: 50px;
-}
-
-.restaurant-item-container {
-  cursor: pointer;
-  background-color: #ffffff;
-  padding: 7px 50px 7px 50px;
-  transition: background-color 0.5s;
-}
-
-.restaurant-item-container:hover {
-  background-color: #f3f3f3;
-}
-
-.restaurant-item-container h6,p {
-  margin: 0;
-}
-
-.restaurant-item-container h6 {
-  font-weight: bold;
-}
-
-.add-restaurant-container {
-  cursor: pointer;
-  background-color: #ffffff;
-  padding: 10px 50px 10px 50px;
-  transition: background-color 0.5s;
-}
-
-.add-restaurant-container:hover {
-  background-color: #f3f3f3;
-}
-
-.add-restaurant {
-  margin: 0;
-  font-weight: bold;
-  color: cornflowerblue;
-}
-
-.padding-0 {
-  padding: 0;
-}
-
-.category-item {
-  min-width: 72px;
-  height: 48px;
-  border: 0.5px solid #a3a3a3;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-
-.category-item:hover {
-  background-color: #55688a;
-  color: white;
-}
-
-.category-item-selected {
-  background-color: #55688a;
-  color: white;
-}
-
-.category-item p {
-  padding: 12px 12px;
-}
-
-.add-category {
-  cursor: pointer;
-  color: cornflowerblue !important;
-}
-
-.menu-container {
-  margin-top: 16px;
-  padding: 0;
-  /* border: 1px solid #a3a3a3;
-  border-radius: 5px; */
-}
-
-.menu-card {
-  width: 12rem;
-  min-height: 134px;
-}
-
-.card-title {
-  margin-bottom: 5px;
-}
-
-.card-text {
-  margin-bottom: 10px;
-}
-
-.btn-delete {
-  margin-left: 5px;
-}
-
-.add-menu-body {
-  text-align: center;
-  margin: 0 auto;
-  align-self: center;
-  padding: 53px 0 0 0;
-}
-
-.add-menu-body h5{
-  margin: 0;
-}
-
-/* background-color: #55688a;
-  transition: background-color 0.5s; */
-
-canvas {
-  display: block;
-  margin: 0 auto;
+a:hover {
+  text-decoration: none;
+  color: #fff;
 }
 
 .list-group-item-action {
@@ -276,7 +64,7 @@ canvas {
   cursor: pointer;
 }
 
-td {
-  word-wrap: break-word;
-  max-width: 260px;
+.toogle-nav {
+  font-size:24px;
+  cursor:pointer
 }

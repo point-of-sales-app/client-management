@@ -9,6 +9,7 @@ import CategoryItemAll from './categoryItemAll';
 import MenuItem from './menuItem';
 import Loading from '../../loading';
 import AddMenuButton from './addMenuButton';
+import './menu.css'
 
 class Menu extends Component {
     constructor(props) {
@@ -33,9 +34,8 @@ class Menu extends Component {
         return (
             <div>
                 <Title title={'Menu'} />
-                <div className='container'>
                     <div className='row'>
-                        <div className="btn-group">
+                        <div className="col btn-group">
                             {
                                 this.props.menu.categories.length !== 0 && <CategoryItemAll />
                             }
@@ -45,10 +45,10 @@ class Menu extends Component {
                                     <CategoryItem data={item} key={'category ' + item.id} />
                                 )
                             }
+                            <AddCategoryButton />
                         </div>
-                        <AddCategoryButton />
                     </div>
-                    <div className='row menu-container'>
+                    <div className='row col mt-3'>
                         {
                             this.props.menu.getMenuLoading ?
                                 <Loading loading={this.props.menu.getMenuLoading} /> :
@@ -62,7 +62,6 @@ class Menu extends Component {
                             <AddMenuButton />
                         }
                     </div>
-                </div>
             </div>
         )
     }

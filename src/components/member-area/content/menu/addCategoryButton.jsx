@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as MaterialDesign from 'react-icons/lib/md'
 import { connect } from 'react-redux';
 import { createCategory } from '../../../../store/menu/menu.actions';
 import { bindActionCreators } from 'redux';
@@ -11,30 +10,29 @@ class AddCategory extends Component {
         this.state = {}
     }
 
-    addCategory = async() => {
-        const {value: name} = await swal({
+    addCategory = async () => {
+        const { value: name } = await swal({
             title: 'Tambah Kategori',
             input: 'text',
             inputPlaceholder: 'Nama kategori',
             showCancelButton: true,
             inputValidator: (value) => {
-              return !value && 'You need to write something!'
+                return !value && 'You need to write something!'
             }
-          })
-          
-          if (name) {
+        })
+
+        if (name) {
             this.props.createCategory({
                 name
             })
-          }
+        }
     }
-    
+
     render() {
         return (
-            <div className='col-auto align-self-center'>
-                <MaterialDesign.MdAddCircle size={18} />
-                <a className='add-category' onClick={this.addCategory}> Tambah category</a>
-            </div>
+            <button type="button" className='btn btn-outline-secondary btn-filter active' onClick={this.addCategory}>
+                Tambah category
+            </button>
         );
     }
 }

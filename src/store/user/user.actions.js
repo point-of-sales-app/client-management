@@ -3,7 +3,7 @@ import {
     REGISTER_ERROR,
     REGISTER_LOADING,
 } from './user.actionTypes';
-import axios from 'axios';
+import axios from '../../axios';
 import swal from 'sweetalert2';
 
 export const register = (payload) => {
@@ -13,7 +13,7 @@ export const register = (payload) => {
             onOpen: () => {
                 swal.showLoading()
                 dispatch(registerLoading());
-                axios.post('http://localhost:3001/registration', {
+                axios.post('/registration', {
                     name: payload.name,
                     email: payload.email,
                     password: payload.password
@@ -62,7 +62,7 @@ export const login = (payload) => {
             text: 'Mohon tunggu sebentar...',
             onOpen: () => {
                 swal.showLoading()
-                axios.post('http://localhost:3001/login', {
+                axios.post('/login', {
                     email: payload.email,
                     password: payload.password
                 }).then(data => {

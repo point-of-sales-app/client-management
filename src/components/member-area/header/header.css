@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #3d4b63 !important;
+    border: 1px solid transparent;
+  }
+  
+.navbar-default {
+    background-color: #55688a;
+    /* border-color: #e7e7e7; */
+}
+  
+.navbar-text {
+    color: white;
+    margin-right: 20px;
+}

@@ -10,7 +10,7 @@ class Title extends Component {
         return ( 
             <div className='row' >
                 <div className="col-lg-12">
-                    <h1 className="page-header">{this.props.title}</h1>
+                    <h1 className="title">{this.props.title}</h1>
                 </div>
             </div>
          )

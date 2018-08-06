@@ -64,7 +64,7 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div className='pt-5'>
+            <div id='dashboard'>
                 <div className='row card-deck'>
                     <div className='card' style={style.borderShadow}>
                         <div className='card-body'>

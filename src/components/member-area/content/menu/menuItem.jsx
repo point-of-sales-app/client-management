@@ -79,8 +79,7 @@ class MenuItem extends Component {
 
     render() {
         return (
-            <div className="col-auto pl-0 pb-3">
-                <div className="card menu-card">
+                <div className="card menu-card mb-2 mr-2">
                     <div className="card-body">
                         <h5 className="card-title">{this.props.data.name}</h5>
                     </div>
@@ -98,7 +97,6 @@ class MenuItem extends Component {
                         <a className="btn btn-outline-danger btn-sm btn-delete" onClick={this.deleteMenu}>Hapus</a> */}
                     </div>
                 </div>
-            </div>
         );
     }
 }

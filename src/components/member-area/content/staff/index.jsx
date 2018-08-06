@@ -78,7 +78,6 @@ class Staff extends Component {
     }
 
     render() {
-        console.log(this.props.staff.staff)
         return (
             <div>
                 <Title title={'Staff'} />

@@ -20,7 +20,7 @@ class Graph extends Component {
         const expense = this.props.data.data.sales.expense;
         let rmSvg = d3.select("svg");
         rmSvg.selectAll("*").remove();
-        
+
         let div = d3.select("body").append("div")
             .attr("class", "tooltip")
             .attr("id", "tooltip")
@@ -195,9 +195,11 @@ class Graph extends Component {
 
     render() {
         return (
-            <div className='row mt-3'>
-                <div id='graph' className='bg-light ml-2'></div>
-                <div className='ml-2 mt-2'>
+            <div>
+                <div className='row mt-3'>
+                    <div id='graph' className='bg-light ml-2'></div>
+                </div>
+                <div className='row ml-2 mt-2'>
                     <span className='badge badge-pill badge-primary'>Penjualan</span>
                     <span className='badge badge-pill badge-danger ml-1'>Belanja</span>
                 </div>

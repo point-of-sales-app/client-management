@@ -15,7 +15,7 @@ class Content extends Component {
     }
     render() {
         return (
-            <div className="page-wrapper">
+            <div id="page-wrapper">
                 <Switch>
                     <Route path={this.state.path+'/dashboard'} component={Dashboard} />
                     <Route path={this.state.path+'/sales'} component={Sales} />

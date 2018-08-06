@@ -22,6 +22,13 @@ class LoginForm extends Component {
         });
     }
 
+    loginDemo = () => {
+        this.props.login({
+            email: 'test@pos.com',
+            password: '123'
+        });
+    }
+
     enterBtnHandler = () => {
         var passwordInput = document.querySelector("#passwordLogin");
             passwordInput.addEventListener("keyup", function (event) {
@@ -57,6 +64,10 @@ class LoginForm extends Component {
                             Belum punya akun?
                             <a id="register-anchor" data-toggle="modal" data-target="#register-modal"> Daftar di sini</a>
                         </p>
+                        <span>
+                            atau
+                            <a id="register-anchor" data-toggle="modal" onClick={this.loginDemo}> masuk versi demo</a>
+                        </span>
                     </div>
                 </div>
             </div>

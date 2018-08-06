@@ -12,6 +12,12 @@
 	margin-top: 20px;
 }
 
+.login-content {
+	width: 480px;
+	border-radius: 15px;
+	box-shadow: 0.5px 0.5px 4px #a3a3a3;
+  }  
+
 .login-btn {
 	width: 100%;
 	padding: 10px;

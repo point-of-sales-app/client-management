@@ -190,8 +190,8 @@ class Expenses extends Component {
         return (
             <div>
                 <Title title={'Belanja'} />
-                <div className='row list-expense-container'>
-                    <div className='col-3'>
+                <div className='row'>
+                    <div className='col-md-12 col-lg-3 col-sm-12 mb-3'>
                         <ul className="list-group">
                             <li className="list-group-item text-white bg-dark d-flex w-100 justify-content-between">
                                 <h6 className='mt-2 font-weight-bold text-center'>Daftar Barang</h6>
@@ -210,52 +210,48 @@ class Expenses extends Component {
                             </div>
                         </ul>
                     </div>
-                    <div className='col-9'>
-                        <div className='row mb-2'>
-                            <div className='col align-self-start p-0'>
-                                <div className="btn-group">
-                                    <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
-                                    <button type="button" id='1' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
-                                    <button type="button" id='2' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
-                                </div>
-                            </div>
-                            <div className='col align-self-end p-0'>
-                                <button className='btn btn-primary float-right' onClick={this.addExpenses}><ShopIcon /> Belanja </button>
-                            </div>
+                    <div className='col-md-12 col-lg-9 col-sm-12'>
+                        <div className="p-0 col btn-group mb-2">
+                            <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
+                            <button type="button" id='1' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
+                            <button type="button" id='2' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
                         </div>
-                        <div className='row'>
-                            <table className='table table-striped table-bordered'>
-                                <thead className='thead-dark'>
-                                    <tr>
-                                        <th scope='col'>#</th>
-                                        <th scope='col'>Tanggal</th>
-                                        <th scope='col'>Barang</th>
-                                        <th scope='col'>Harga</th>
-                                        <th scope='col'>Kuantitas</th>
-                                        <th scope='col' colSpan='2'>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        this.props.expenses.getExpensesLoading ?
+                        <table className='table table-striped table-bordered'>
+                            <thead className='thead-dark'>
+                                <tr>
+                                    <th scope='col'>#</th>
+                                    <th scope='col'>Tanggal</th>
+                                    <th scope='col'>Barang</th>
+                                    <th scope='col'>Harga</th>
+                                    <th scope='col'>Kuantitas</th>
+                                    <th scope='col' colSpan='2'>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.props.expenses.getExpensesLoading ?
+                                        <tr>
+                                            <td colSpan='6'>Memuat...</td>
+                                        </tr> :
+                                        this.props.expenses.expenses.length !== 0 ?
+                                            this.props.expenses.expenses.map((item, idx) =>
+                                                <ExpensesItem data={item} index={idx} key={`expenses ${item.id}`} filter={this.state.filter} />
+                                            ) :
                                             <tr>
-                                                <td colSpan='6'>Memuat...</td>
-                                            </tr> :
-                                            this.props.expenses.expenses.length !== 0 ?
-                                                this.props.expenses.expenses.map((item, idx) =>
-                                                    <ExpensesItem data={item} index={idx} key={`expenses ${item.id}`} filter={this.state.filter} />
-                                                ) :
-                                                <tr>
-                                                    <td colSpan='6'>Anda belum memiliki daftar belanja</td>
-                                                </tr>
-                                    }
-                                    <tr>
-                                        <td colSpan='5'>Total Pengeluaran</td>
-                                        <td colSpan='2'>{rupiah(this.props.expenses.sum)}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                                <td colSpan='6'>Anda belum memiliki daftar belanja</td>
+                                            </tr>
+                                }
+                                <tr>
+                                    <td colSpan='5'>Total Pengeluaran</td>
+                                    <td colSpan='2'>{rupiah(this.props.expenses.sum)}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div className='col align-self-end p-0'>
+                            <button className='btn btn-primary float-right' onClick={this.addExpenses}><ShopIcon /> Belanja </button>
                         </div>
+
                     </div>
                 </div>
             </div>

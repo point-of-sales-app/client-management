@@ -80,102 +80,98 @@ class Sales extends Component {
         return (
             <div>
                 <Title title={'Penjualan'} />
-                <div className='row'>
-                    <div className='col-sm-12 col-md-6 col-lg-3'>
-                        <div className="card">
-                            <div className="card-header bg-dark text-white">
-                                Total Penjualan
-                            </div>
-                            <div className="card-body">
-                                {
-                                    this.props.sales.getSummaryLoading ?
-                                        <h4 className="card-text">Memuat...</h4> :
-                                        totalSales === 0 ?
-                                            <h4 className="card-text">0</h4> :
-                                            <h4 className="card-text">{rupiah(totalSales)}</h4>
-                                }
-                            </div>
-                        </div>
-                        <div className="card mt-3">
-                            <div className="card-header bg-dark text-white">
-                                Jumlah Transaksi
-                            </div>
-                            <div className="card-body">
-                                {
-                                    this.props.sales.getSummaryLoading ?
-                                        <h4 className="card-text">Memuat...</h4> :
-                                        <h4 className="card-text">{data.length}</h4>
-                                }
-                            </div>
-                        </div>
-                        <div className="card mt-3">
-                            <div className="card-header bg-dark text-white">
-                                Menu Terlaris
-                            </div>
-                            <div className="card-body">
-                                {
-                                    this.props.sales.getSummaryLoading ?
-                                        <h4 className="card-text">Memuat...</h4> :
-                                        topSales.length === 0 ?
-                                            <p className='font-weight-bold'>-</p> :
-                                            topSales.map((element, i) =>
-                                                <div key={`topsales ${i}`}>
-                                                    <p>{element.category}</p>
-                                                    {
-                                                        i === 0 ?
-                                                            <p className='mb-2 font-weight-bold'>{element.name} ({element.count}x)</p> :
-                                                            <p className='font-weight-bold'>{element.name} ({element.count}x)</p>
-                                                    }
-                                                </div>
-                                            )
-                                }
-                            </div>
+                <div className='row mb-3'>
+                    <div className='col align-self-start'>
+                        <div className="btn-group">
+                            <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
+                            <button type="button" id='1' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
+                            <button type="button" id='2' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
                         </div>
                     </div>
-                    <div className='col-9'>
-                        <div className='row mb-3'>
-                            <div className='col align-self-start p-0'>
-                                <div className="btn-group">
-                                    <button type="button" id='0' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('0')}>Hari ini</button>
-                                    <button type="button" id='1' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('1')}>Minggu ini</button>
-                                    <button type="button" id='2' className="btn btn-outline-primary btn-filter" onClick={() => this.filter('2')}>Bulan ini</button>
-                                </div>
+                </div>
+                <div className='row card-deck'>
+                    <div className="card">
+                        <div className="card-header bg-dark text-white">
+                            Total Penjualan
                             </div>
+                        <div className="card-body">
+                            {
+                                this.props.sales.getSummaryLoading ?
+                                    <h4 className="card-text">Memuat...</h4> :
+                                    totalSales === 0 ?
+                                        <h4 className="card-text">0</h4> :
+                                        <h4 className="card-text">{rupiah(totalSales)}</h4>
+                            }
                         </div>
-                        <div className='row'>
-                            <table className='table table-striped table-bordered'>
-                                <thead className='thead-dark'>
+                    </div>
+                    <div className="card">
+                        <div className="card-header bg-dark text-white">
+                            Jumlah Transaksi
+                            </div>
+                        <div className="card-body">
+                            {
+                                this.props.sales.getSummaryLoading ?
+                                    <h4 className="card-text">Memuat...</h4> :
+                                    <h4 className="card-text">{data.length}</h4>
+                            }
+                        </div>
+                    </div>
+                    <div className="card">
+                        <div className="card-header bg-dark text-white">
+                            Menu Terlaris
+                            </div>
+                        <div className="card-body">
+                            {
+                                this.props.sales.getSummaryLoading ?
+                                    <h4 className="card-text">Memuat...</h4> :
+                                    topSales.length === 0 ?
+                                        <p className='font-weight-bold'>-</p> :
+                                        topSales.map((element, i) =>
+                                            <div key={`topsales ${i}`}>
+                                                <p>{element.category}</p>
+                                                {
+                                                    i === 0 ?
+                                                        <p className='mb-2 font-weight-bold'>{element.name} ({element.count}x)</p> :
+                                                        <p className='font-weight-bold'>{element.name} ({element.count}x)</p>
+                                                }
+                                            </div>
+                                        )
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div className='row mt-3 pl-3 pr-3'>
+                    <table className='table table-striped table-bordered'>
+                        <thead className='thead-dark'>
+                            <tr>
+                                {
+                                    this.state.filter === '0' ?
+                                        <th scope='col'>Pukul</th> :
+                                        <th scope='col'>Tanggal</th>
+                                }
+                                <th scope='col'>Menu</th>
+                                <th scope='col'>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.props.sales.getSummaryLoading ?
                                     <tr>
-                                        {
-                                            this.state.filter === '0' ?
-                                                <th scope='col'>Pukul</th> :
-                                                <th scope='col'>Tanggal</th>
-                                        }
-                                        <th scope='col'>Menu</th>
-                                        <th scope='col'>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        this.props.sales.getSummaryLoading ?
-                                            <tr>
-                                                <td colSpan='6'>Memuat...</td>
-                                            </tr> :
-                                            data.length !== 0 ?
-                                                data.map((item, idx) =>
-                                                    <TransactionItem
-                                                        data={item}
-                                                        filter={this.state.filter}
-                                                        key={`transaction ${item.id}`} />
-                                                ) :
-                                                <tr>
-                                                    <td colSpan='6'>Anda belum memiliki transaksi</td>
-                                                </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                                        <td colSpan='6'>Memuat...</td>
+                                    </tr> :
+                                    data.length !== 0 ?
+                                        data.map((item, idx) =>
+                                            <TransactionItem
+                                                data={item}
+                                                filter={this.state.filter}
+                                                key={`transaction ${item.id}`} />
+                                        ) :
+                                        <tr>
+                                            <td colSpan='6'>Anda belum memiliki transaksi</td>
+                                        </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
         )

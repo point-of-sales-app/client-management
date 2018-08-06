@@ -1,0 +1,100 @@
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #55688a;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 70px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+  }
+  
+  .nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  .active {
+    background-color: #aaaaaa
+  }
+  
+  .active a {
+    color: black;
+  }
+
+  .sidebar ul li {
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+    text-align: left
+  }
+  
+  .nav>li {
+    position: relative;
+    display: block;
+  }
+  
+  .nav>li:hover {
+    background-color: #3d4b63 
+  }
+  
+  .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+  }
+
+  .bottom-nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+  .logout {
+    background-color: #dc3545;
+  }
+
+  .bottom-nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+  }
+
+  .bottom-nav>li>p {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+  }

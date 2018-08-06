@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import { PulseLoader } from 'react-spinners';
 import RestaurantItem from './restaurantItem';
 import { isEmailAllowEmpty } from '../../helper/isEmail'
+import './restaurant.css';
 
 class Restaurant extends Component {
     constructor(props) {
